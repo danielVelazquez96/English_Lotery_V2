@@ -9,13 +9,7 @@ import reloadButton from '../../assets/images/re-load.png';
 
 class ReloadCard extends Component{
 
-    constructor(props){
-        super(props)
-        this.state={
-            cardsSelected:this.chooseCardsRandomly(),
-        }
-    }
-    
+
     // Function to select randomly 16 cards from 1 to 56
     chooseCardsRandomly=()=>{
         let cardsSelected=[];
@@ -37,6 +31,10 @@ class ReloadCard extends Component{
         return cardsSelected;
     }
 
+    state={
+        cardsSelected:this.chooseCardsRandomly(),
+    }
+    
     render(){
         const {cards}=this.props;
         return(

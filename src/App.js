@@ -5,6 +5,7 @@ import axios from 'axios';
 // Components
 import Nav from './components/Nav/Nav.js'
 import ReloadCard from './components/ReloadCard/ReloadCard.js'
+import ShowCards from './components/ShowCards/ShowCards.js'
 
 class App extends Component{
     state={
@@ -37,6 +38,7 @@ class App extends Component{
         <div>
           <Nav/>
           <ReloadCard cards={this.state.data} />
+          <ShowCards cards={this.state.data} />
         </div>
         
       )

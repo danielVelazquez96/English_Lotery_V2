@@ -1,0 +1,51 @@
+.showContainer-card{
+    position: relative;
+    border: solid black 2px;
+    height: 7cm;
+}
+
+/* card image */
+.showContainer-card img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/*card title */
+.showContainer-card h2{
+
+    /* title limits */
+    max-width: 4.9cm;
+    max-height: 50cm;
+    overflow: hidden;
+    
+
+
+    /*title alignment */
+    position: absolute;
+    font-size: 1rem;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%,0);
+
+
+    /* Lirycs format*/
+    text-align: center;
+    line-height: .8cm;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+   
+    
+
+    
+}
+
+/* card number */
+.showContainer-card span{
+    position: absolute;
+    top:.1cm;
+    left: .15cm;
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+}
