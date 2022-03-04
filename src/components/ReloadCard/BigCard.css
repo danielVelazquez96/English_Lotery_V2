@@ -1,0 +1,18 @@
+.BigCardContainer{
+    /* Styles */
+    width: 12.9cm;
+    height: 19.6cm;
+    margin: 50px 0;
+    background-color: white;
+    border: solid white .3cm;
+    box-shadow: 3px 3px 5px black, 
+                -3px -3px 5px black;
+   
+
+    /* Grid properties */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    row-gap: .5cm;
+    column-gap: .3cm;
+}

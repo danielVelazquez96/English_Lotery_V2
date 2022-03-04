@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    background-image: radial-gradient(circle, #4956d6, #4157d1, #3958cc, #3259c7, #2c59c2, #1b65c8, #0870cc, #007bcf, #0092d8, #00a7d8, #00bad3, #34cbcb);
+    
+    margin: 10px 15vw;
+    text-align: center;
+    padding: 20px;
+    box-shadow:  5px 5px  1px rgb(0,0,0,.5) ;
+    color: white;
+    width: 60%;
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

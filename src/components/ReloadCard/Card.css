@@ -1,0 +1,48 @@
+.card{
+
+    position: relative;
+    border: solid 2px black;
+}
+
+.card img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+
+/* Titulo de card */
+.card h2{
+
+    /*title format */
+    max-width: 2.9cm;
+    max-height: .9cm;
+    overflow: hidden;
+    
+
+
+    /* title alignment */
+    position: absolute;
+    font-size: 1rem;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%,0);
+
+
+    /* lyrics format */
+    text-align: center;
+    line-height: .4cm;
+
+    font-family: 'Roboto', sans-serif;
+
+    
+}
+
+/* number of card */
+.card span{
+    position: absolute;
+    top:.1cm;
+    left: .15cm;
+    font-family: 'Lobster', cursive;
+}
