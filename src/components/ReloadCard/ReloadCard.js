@@ -3,6 +3,8 @@ import './ReloadCard.css'; //stylesheet
 
 // Components
 import BigCard from './BigCard.js'
+import Card from './Card';
+import ReloadButton from './ReloadButton'
 
 // reload button image
 import reloadButton from '../../assets/images/re-load.png';
@@ -34,11 +36,24 @@ const ReloadCard=({cards})=>{
 
     return(
       <div className='ReloadCardsContainer'>
-        <BigCard cardsSelected={cardsSelected} cards={cards} />
+        <BigCard cardsSelected={cardsSelected} cards={cards} >
+          {
+            cards.length //if there cards
+                ? cardsSelected.map(cardSelected=>{
+                    return <Card 
+                            key={cardSelected} 
+                            name={cards[cardSelected-1].name} 
+                            url={cards[cardSelected-1].url}
+                            number={cardSelected}
+                            />
+                })
+                :null
+          }  
+        </BigCard>
         
-        <div onClick={()=>setCardsSelected(chooseRandomlyCards())} className="reload-buttom" >
+        <ReloadButton onClick={()=>setCardsSelected(chooseRandomlyCards())} >
                 <img  src={reloadButton} alt="reload"/>
-        </div>
+        </ReloadButton>
       </div>
     ) 
 }

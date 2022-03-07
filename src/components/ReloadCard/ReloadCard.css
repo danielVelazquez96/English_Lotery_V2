@@ -2,32 +2,3 @@
     display: flex;
     justify-content: space-evenly;
 }
-
-.reload-buttom{
-    position: relative;
-    display: block;
-    width: 2cm;
-    height: 2cm;
-    align-self: center;
-
-    cursor: pointer;
-    border-radius: 20%;
-    transition: .5 ;
-    background-color: lightgreen;
-    
-    
-}
-
-.reload-buttom img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-
-}
-
-    /*Efects of click  */
-.reload-buttom:active{
-    box-shadow: 0 0 100px khaki ;
-    transform: scale(.9);
-}

@@ -1,10 +1,10 @@
-.card{
+.reloadCard-card{
 
     position: relative;
     border: solid 2px black;
 }
 
-.card img{
+.reloadCard-card img{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -12,8 +12,8 @@
 }
 
 
-/* Titulo de card */
-.card h2{
+/* Titulo de reloadCard-card */
+.reloadCard-card h2{
 
     /*title format */
     max-width: 2.9cm;
@@ -39,8 +39,8 @@
     
 }
 
-/* number of card */
-.card span{
+/* number of reloadCard-card */
+.reloadCard-card span{
     position: absolute;
     top:.1cm;
     left: .15cm;
