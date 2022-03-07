@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import './ReloadCard.css'; //stylesheet
 
 // Components
@@ -7,11 +7,10 @@ import BigCard from './BigCard.js'
 // reload button image
 import reloadButton from '../../assets/images/re-load.png';
 
-class ReloadCard extends Component{
-
-
+const ReloadCard=({cards})=>{
+   
     // Function to select randomly 16 cards from 1 to 56
-    chooseCardsRandomly=()=>{
+    const chooseRandomlyCards=()=>{
         let cardsSelected=[];
 
         for(let i=0;i<16;i++){
@@ -31,23 +30,17 @@ class ReloadCard extends Component{
         return cardsSelected;
     }
 
-    state={
-        cardsSelected:this.chooseCardsRandomly(),
-    }
-    
-    render(){
-        const {cards}=this.props;
-        return(
-          <div className='ReloadCardsContainer'>
-            <BigCard cardsSelected={this.state.cardsSelected} cards={cards} />
-            
-            <div onClick={()=>this.setState({cardsSelected:this.chooseCardsRandomly()})} className="reload-buttom" >
-                    <img  src={reloadButton} alt="reload"/>
-            </div>
-          </div>
-        )
-    }
-    
+    const [cardsSelected,setCardsSelected]=useState(chooseRandomlyCards())
+
+    return(
+      <div className='ReloadCardsContainer'>
+        <BigCard cardsSelected={cardsSelected} cards={cards} />
+        
+        <div onClick={()=>setCardsSelected(chooseRandomlyCards())} className="reload-buttom" >
+                <img  src={reloadButton} alt="reload"/>
+        </div>
+      </div>
+    ) 
 }
 
 export default ReloadCard;
