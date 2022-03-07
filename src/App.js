@@ -1,52 +1,29 @@
-import { Component } from 'react';
+import { useState,useEffect } from 'react';
 import './App.css'; //stylesheet
-import axios from 'axios';
 
 // Components
 import Nav from './components/Nav/Nav.js'
 import ReloadCard from './components/ReloadCard/ReloadCard.js'
 import ShowCards from './components/ShowCards/ShowCards.js'
 
-class App extends Component{
-    state={
-      data:[]
-    }
+// Api
+import getLotery from './api/getLotery.js'
 
-    getData=async()=>{
-      const urlApi=`http://localhost:5000/getData`;
-        try{
-            // Get data from the API
-            const data=await axios.get(urlApi)
-            .then(response => {
-                return response.data;
-            })
-            .catch(console.log);
+const App=()=>{
+    const [data,setData]=useState([])
 
-            this.setState({data:data});
-            
-        }catch(e){
-            console.error(e.message);
-        }
-    }
 
-    componentDidMount(){
-      this.getData()
-    }
+    useEffect(async()=>{
+      setData(await getLotery())
+    },[])
 
-    render(){
-      return(
-        <div>
-          <Nav/>
-          <ReloadCard cards={this.state.data} />
-          <ShowCards cards={this.state.data} />
-        </div>
-        
-      )
-    }
-    
-
+    return(
+      <div>
+        <Nav/>
+        <ReloadCard cards={data} />
+        <ShowCards cards={data} />
+      </div>
+    )
 }
-
-
 
 export default App;
