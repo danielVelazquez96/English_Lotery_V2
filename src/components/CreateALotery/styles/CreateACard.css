@@ -1,0 +1,51 @@
+.createAcard{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    background-color: #995406;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border:#000 solid 3px;
+    height: 400px;
+    width: 900px;
+    color: #fff;
+    
+}
+
+/* Template */
+.createACard-template{  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: blue; */
+    width: 50%;
+    height: auto;
+}
+
+
+/* Form */
+.createACard-form{
+    display: flex;
+    flex-direction: column;
+    /* background-color: green; */
+    width: 50%;
+    /* height: 200px; */
+    padding: 20px;
+    margin-left: 50px;
+    border: solid blue 2px;
+}
+
+.createACard-form input{
+    width: 200px;
+}
+
+.createACard-form label{
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+.createACard-form button{
+    margin: 10px;
+    margin-top: 28px;
+}
