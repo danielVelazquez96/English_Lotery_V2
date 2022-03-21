@@ -19,10 +19,11 @@
     padding: 20px 200px;
     box-shadow:  5px 5px  1px rgb(0,0,0,.5) ;
     color: white;
+    font-size: 75px;
 }
 
 .nav .button-createLotery{
-    background-color: #0BA625   ;
+    background-color: #12186F   ;
     color: #fff;
     font-size: 15px;
     padding:10px;
@@ -33,5 +34,5 @@
 }
 
 .nav .button-createLotery:hover{
-    background-color: #0BC52A;
+    background-color: #1C25AB;
 }
