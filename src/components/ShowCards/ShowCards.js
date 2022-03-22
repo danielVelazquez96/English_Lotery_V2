@@ -3,9 +3,10 @@ import './ShowCards.css'
 //Components
 import Card from './Card.js'
 
-const ShowCards=({cards})=>{
+// styles argumnets is optional
+const ShowCards=({cards},styles)=>{
     return(
-        <div className="ShowContainer" >
+        <div className="ShowContainer" style={styles} >
             {
                 cards.length
                     ?cards.map((card,key)=>{

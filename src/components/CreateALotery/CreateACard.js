@@ -8,7 +8,6 @@ import useNewCard from '../../hooks/useNewCard'
 import uploadImage from '../../api/uploadImage'
 
 const CreateACard=({addCard})=>{
-
    const [newCard,handleChange,handleChangeFile,resetNewCard]=useNewCard({ 
         number:'1',
         name:'',
@@ -32,17 +31,30 @@ const CreateACard=({addCard})=>{
 
     return(
         <div className='createAcard'>
+            {/* Create a card Title */}
             <h1 className='createAcard-title'>Create A Card</h1>
             <div className='CreateACard-container'>
+                {/* Template to show cards desing */}
                 <div className='createACard-template'>
-                    <Card name={newCard.name} number={newCard.number} url={newCard.urlImg} messures={{height: '7cm',width: '4cm'}}/>    
-                    <Card name={newCard.name} number={newCard.number} url={newCard.urlImg} messures={{height: '5cm',width: '3cm'}}/>    
+                    <Card 
+                        name={newCard.name} 
+                        number={newCard.number} 
+                        url={newCard.urlImg} 
+                        messures={{height: '6cm',width: '4cm'}}
+                    />    
+                    <Card 
+                        name={newCard.name} 
+                        number={newCard.number} 
+                        url={newCard.urlImg} 
+                        messures={{height: '5cm',width: '3cm'}}  
+                    />  
                 </div>
-
+                {/* ---------------------------- */}
+                {/* Form to cards design*/}
                 <form onSubmit={handleSubmit} className='createACard-form'>
                     <div>
                         <i 
-                            className="bi bi-question-circle-fill createACard-form-titleAlert" 
+                            className="bi bi-question-circle-fill" 
                             data-tooltip="It allows 2 words and 18 letters"
                         />
                         <label>Title</label> 
@@ -57,7 +69,7 @@ const CreateACard=({addCard})=>{
                     <br/>
                     <div>
                         <i 
-                            className="bi bi-question-circle-fill createACard-form-titleAlert" 
+                            className="bi bi-question-circle-fill" 
                             data-tooltip=".png, .jpg, .jpeg formats"
                         />
                         <label>Image</label> 
@@ -69,6 +81,7 @@ const CreateACard=({addCard})=>{
                     />
                     <button type='submit' className='submit' >Create</button>
                 </form>
+                {/* ------------------ */}
             </div>
         </div>
     )

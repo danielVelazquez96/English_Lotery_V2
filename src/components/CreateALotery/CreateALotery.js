@@ -14,9 +14,20 @@ const CreateALotery=()=>{
         
         <CreateACard addCard={addCard} />
         <div className='createALotery-cardsNumberShow'>
-            <p >Cards made it <span >{newLotery.length}</span ></p>
+            <div className='flexRow'>
+                <i 
+                    className="bi bi-question-circle-fill createACard-form-titleAlert" 
+                    data-tooltip="It needs 56 Card to update lotery"
+                />
+                <p >Cards made it <span >{newLotery.length}</span ></p>
+            </div>
         </div>
-        <ShowCards cards={newLotery} />
+        {
+            newLotery.length>0
+                ?<ShowCards cards={newLotery} styles={{gridTemplateColumns: 'repeat(auto-fill,minmax(4cm,4.1cm))'}} />
+                :null
+        }
+        
         </div>
     )
 }

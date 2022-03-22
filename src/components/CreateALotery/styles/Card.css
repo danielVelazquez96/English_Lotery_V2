@@ -14,7 +14,7 @@
 }
 
 
-/* Titulo de createALotery-card */
+/*Title */
 .createALotery-card h2{
 
     /*title format */
@@ -26,7 +26,8 @@
 
     /* title alignment */
     position: absolute;
-    font-size: 1rem;
+    font-size: 2vw;
+    font-weight: 500;
     top: 78%;
     left: 50%;
     transform: translate(-50%,0);
