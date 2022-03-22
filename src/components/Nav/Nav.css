@@ -13,7 +13,6 @@
 .nav .title{
     background-image: 
     radial-gradient(circle, #4956d6, #4157d1, #3958cc, #3259c7, #2c59c2, #1b65c8, #0870cc, #007bcf, #0092d8, #00a7d8, #00bad3, #34cbcb);
-    
     margin: 10px 15vw;
     text-align: center;
     padding: 20px 200px;
@@ -22,7 +21,7 @@
     font-size: 75px;
 }
 
-.nav .button-createLotery{
+.nav button{
     background-color: #12186F   ;
     color: #fff;
     font-size: 15px;
@@ -35,4 +34,18 @@
 
 .nav .button-createLotery:hover{
     background-color: #1C25AB;
+}
+
+@media (max-width: 1650px){
+    .nav .title{
+        order:  1;
+    }
+    
+    .nav .button-createLotery{
+        order: 3;
+    }
+
+    .nav .button-searchLotery{
+        order: 2;
+    }
 }
