@@ -1,23 +1,15 @@
 import { useState,useEffect } from 'react';
 import './App.css'; //stylesheet
-
-// Components
 import Nav from './components/Nav/Nav.js'
-
-//Pages 
 import Template from './pages/Template';
 import CreateALotery from './pages/CreateALotery.js'
-
-// Api
 import getLotery from './api/getLotery.js'
+import usePage from './hooks/usePage';
+
 
 const App=()=>{
-    const [data,setData]=useState([])
-    const [page,setPage]=useState('Template')
-
-    const changePage=(NewPage)=>{
-      setPage(NewPage)
-    }
+    const[page,changePage]=usePage('CreateALotery')
+    const[data,setData]=useState([])
 
     useEffect(async()=>{
       setData(await getLotery());
