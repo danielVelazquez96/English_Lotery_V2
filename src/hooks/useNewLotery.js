@@ -8,10 +8,7 @@ const useNewLotery=(initial)=>{
     //     url:'',
     // }
     
-    
     const [newLotery,setNewLotery]=useState(initial);
-    
-
 
     const addCard=({name,url})=>{
         const number=newLotery.length+1;
@@ -20,10 +17,9 @@ const useNewLotery=(initial)=>{
             url: url,
             number: number
         }])
-
     }
 
-    const resetNewCard=()=>{
+    const resetNewLotery=()=>{
         setNewLotery({
             number:'1',
             name:'',
@@ -31,7 +27,7 @@ const useNewLotery=(initial)=>{
             });
     }
 
-    return [newLotery,addCard,resetNewCard]
+    return [newLotery,addCard,resetNewLotery]
 }
 
 export default useNewLotery

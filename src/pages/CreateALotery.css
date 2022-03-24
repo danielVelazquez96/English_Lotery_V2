@@ -21,28 +21,3 @@
 
 
 
-/* Data tooltip fomat----------------------------------------------------------------------------*/
-[data-tooltip]{
-    position:relative;
-    color:#000;
-    margin-right: .4rem;
-}
-
-[data-tooltip]:hover::after{
-    opacity: .9;
-}
-[data-tooltip]::after{
-    content: attr(data-tooltip);
-    position: absolute;
-    right: 25px;
-    padding:0.5rem;
-    background-color:#606060;
-    color: #fff;
-    font-size: 12px;
-    border-radius: 5px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none; /* permite que los pseudoelementos no los detecte el  puntero*/
-    transition: .25s;
-
-}

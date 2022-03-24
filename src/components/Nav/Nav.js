@@ -51,7 +51,7 @@ const Nav=({changePage})=>{
             <PagesContainer>
                 <PageButton onClick={()=>changePage('SearchLotery')}>Search Lotery</PageButton>
                 <PageButton onClick={()=>changePage('Template')}>Template</PageButton>
-                <PageButton onClick={()=>changePage('CreateALotery')}>Create A Card</PageButton>
+                <PageButton onClick={()=>changePage('CreateALotery')}>Create A Lotery</PageButton>
             </PagesContainer>
             
         </NavContainer>

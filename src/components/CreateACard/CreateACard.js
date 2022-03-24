@@ -1,15 +1,48 @@
 import { useRef } from 'react'
-
-import './styles/CreateACard.css'
-
-// Components
+import styled from 'styled-components'
 import Card from './Card'
 import Form from './Form'
-// Hooks
 import useNewCard from '../../hooks/useNewCard'
-// Api
 import uploadImage from '../../api/uploadImage'
 
+// Styles
+const CreateACardContainer=styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    margin: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    height: auto;
+    width: 900px;
+    color: #000;
+    transition: all .1s ease;
+    &:hover{
+        background-color: rgb(256,256,256,0.3);
+    }
+`
+const Title=styled.h2`
+     color: #fff;
+    font-weight: 200px;
+    font-size: 50px;
+    margin-bottom: 20px;
+`
+const DesignContainer=styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`
+const PreView=styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: auto;
+`
+
+// Components
 const CreateACard=({addCard})=>{
     const inputFile=useRef(null)
 
@@ -20,34 +53,27 @@ const CreateACard=({addCard})=>{
         })
     
     const handleSubmit=async(e)=>{
-
         e.preventDefault();
-        
-        
         // filters
         if(newCard.name=='') return null;
         if(newCard.urlImg=='https://res.cloudinary.com/dxi9i9ucm/image/upload/v1644087194/englishLotery/fzg796ir2xkr5pp2bov4.jpg') return null;
-
         // Reset form and usenewCard
         resetNewCard();
         inputFile.current.value="";
-
         const cloudinaryUrl=await uploadImage(newCard.urlImg);
-        
         addCard({
             name: newCard.name,
             url: cloudinaryUrl,
         });
-
     }
 
     return(
-        <div className='createAcard'>
+        <CreateACardContainer >
             {/* Create a card Title */}
-            <h1 className='createAcard-title'>Create A Card</h1>
-            <div className='CreateACard-container'>
+            <Title>Create  Card</Title>
+            <DesignContainer>
                 {/* Template to show cards desing */}
-                <div className='createACard-template'>
+                <PreView className='createACard-template'>
                     <Card 
                         name={newCard.name} 
                         number={newCard.number} 
@@ -60,7 +86,7 @@ const CreateACard=({addCard})=>{
                         url={newCard.urlImg} 
                         messures={{height: '5cm',width: '3cm'}}  
                     />  
-                </div>
+                </PreView>
                 {/* ---------------------------- */}
                 {/* Form to cards design*/}
                 <Form 
@@ -71,8 +97,8 @@ const CreateACard=({addCard})=>{
                     onSubmit={handleSubmit}
                 />
                 {/* ------------------ */}
-            </div>
-        </div>
+            </DesignContainer>
+        </CreateACardContainer>
     )
 }
 
