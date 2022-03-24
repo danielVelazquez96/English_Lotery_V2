@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to top, #6b98d1, #5f92d6, #538cdb, #4885df, #3f7ee3, #3388ec, #2392f5, #009cfe, #00b8ff, #00d0ff, #00e7fc, #5ffbf1);
 }
 
 code {
@@ -25,5 +27,11 @@ body *{
 .flexColumn{
   display: flex;
   flex-direction: column;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
