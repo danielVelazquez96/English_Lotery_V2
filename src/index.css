@@ -13,6 +13,10 @@ code {
 }
 
 /* General Formats */
+body *{
+  outline: none;
+}
+
 .flexRow{
   display: flex;
   flex-direction: row;
@@ -22,3 +26,4 @@ code {
   display: flex;
   flex-direction: column;
 }
+

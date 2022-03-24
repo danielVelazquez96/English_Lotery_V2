@@ -24,7 +24,6 @@
 
     /*title alignment */
     position: absolute;
-    font-size: 2vw;
     top: 78%;
     left: 50%;
     transform: translate(-50%,0);

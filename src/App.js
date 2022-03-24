@@ -3,20 +3,20 @@ import './App.css'; //stylesheet
 
 // Components
 import Nav from './components/Nav/Nav.js'
-import ReloadCard from './components/ReloadCard/ReloadCard.js'
-import ShowCards from './components/ShowCards/ShowCards.js'
-import CreateALotery from './components/CreateALotery/CreateALotery.js'
+
+//Pages 
+import Template from './pages/Template';
+import CreateALotery from './pages/CreateALotery.js'
 
 // Api
 import getLotery from './api/getLotery.js'
 
 const App=()=>{
     const [data,setData]=useState([])
-    const [page,setPage]=useState({template:false})
+    const [page,setPage]=useState('Template')
 
-    const changePage=()=>{
-      const newValue=!page.template;
-      setPage({template:newValue})
+    const changePage=(NewPage)=>{
+      setPage(NewPage)
     }
 
     useEffect(async()=>{
@@ -27,12 +27,11 @@ const App=()=>{
       <div>
         <Nav page={page} changePage={changePage}/>
         {
-          page.template
-          ?<div>
-            <ReloadCard cards={data} />
-            <ShowCards cards={data} />
-           </div>
-          :<CreateALotery/>
+          page==='Template'
+            ?<Template data={data} />
+            :page==='CreateALotery'
+              ?<CreateALotery/>
+              :null
         }
       </div>
     )

@@ -1,13 +1,18 @@
+import { useRef } from 'react'
+
 import './styles/CreateACard.css'
 
 // Components
 import Card from './Card'
+import Form from './Form'
 // Hooks
 import useNewCard from '../../hooks/useNewCard'
 // Api
 import uploadImage from '../../api/uploadImage'
 
 const CreateACard=({addCard})=>{
+    const inputFile=useRef(null)
+
    const [newCard,handleChange,handleChangeFile,resetNewCard]=useNewCard({ 
         number:'1',
         name:'',
@@ -17,16 +22,23 @@ const CreateACard=({addCard})=>{
     const handleSubmit=async(e)=>{
 
         e.preventDefault();
+        
+        
         // filters
         if(newCard.name=='') return null;
         if(newCard.urlImg=='https://res.cloudinary.com/dxi9i9ucm/image/upload/v1644087194/englishLotery/fzg796ir2xkr5pp2bov4.jpg') return null;
 
+        // Reset form and usenewCard
         resetNewCard();
+        inputFile.current.value="";
+
         const cloudinaryUrl=await uploadImage(newCard.urlImg);
+        
         addCard({
             name: newCard.name,
             url: cloudinaryUrl,
         });
+
     }
 
     return(
@@ -51,36 +63,13 @@ const CreateACard=({addCard})=>{
                 </div>
                 {/* ---------------------------- */}
                 {/* Form to cards design*/}
-                <form onSubmit={handleSubmit} className='createACard-form'>
-                    <div>
-                        <i 
-                            className="bi bi-question-circle-fill" 
-                            data-tooltip="It allows 2 words and 18 letters"
-                        />
-                        <label>Title</label> 
-                    </div>
-                    <input 
-                        name='name' 
-                        placeholder='Card´s Title' 
-                        type="text"
-                        value={newCard.name}
-                        onChange={handleChange}
-                    />
-                    <br/>
-                    <div>
-                        <i 
-                            className="bi bi-question-circle-fill" 
-                            data-tooltip=".png, .jpg, .jpeg formats"
-                        />
-                        <label>Image</label> 
-                    </div>
-                    <input 
-                        name='urlImg' 
-                        type="file"
-                        onChange={handleChangeFile}
-                    />
-                    <button type='submit' className='submit' >Create</button>
-                </form>
+                <Form 
+                    newCard={newCard} 
+                    handleChange={handleChange} 
+                    handleChangeFile={handleChangeFile} 
+                    inputFile={inputFile}
+                    onSubmit={handleSubmit}
+                />
                 {/* ------------------ */}
             </div>
         </div>

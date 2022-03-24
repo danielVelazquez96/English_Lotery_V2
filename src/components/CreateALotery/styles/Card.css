@@ -20,13 +20,13 @@
     /*title format */
     max-width: 2.9cm;
     max-height: .9cm;
-    overflow: hidden;
+    /* overflow: hidden; */
     
 
 
     /* title alignment */
     position: absolute;
-    font-size: 2vw;
+    font-size: 20px;
     font-weight: 500;
     top: 78%;
     left: 50%;

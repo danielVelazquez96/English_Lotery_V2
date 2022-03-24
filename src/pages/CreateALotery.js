@@ -1,10 +1,10 @@
-import './styles/CreateALotery.css'
+import './CreateALotery.css'
 
 // Components
-import CreateACard from './CreateACard'
-import ShowCards from '../ShowCards/ShowCards'
+import CreateACard from '../components/CreateALotery/CreateACard'
+import ShowCards from '../components/ShowCards/ShowCards'
 // Hooks
-import useNewLotery from '../../hooks/useNewLotery'
+import useNewLotery from '../hooks/useNewLotery'
 const CreateALotery=()=>{
     const [newLotery,addCard]= useNewLotery([]);
 
@@ -13,6 +13,7 @@ const CreateALotery=()=>{
         <div className='createALotery'>
         
         <CreateACard addCard={addCard} />
+        
         <div className='createALotery-cardsNumberShow'>
             <div className='flexRow'>
                 <i 
@@ -22,12 +23,9 @@ const CreateALotery=()=>{
                 <p >Cards made it <span >{newLotery.length}</span ></p>
             </div>
         </div>
-        {
-            newLotery.length>0
-                ?<ShowCards cards={newLotery} styles={{gridTemplateColumns: 'repeat(auto-fill,minmax(4cm,4.1cm))'}} />
-                :null
-        }
-        
+        {newLotery.length>0
+            ?<ShowCards cards={newLotery} styles={{gridTemplateColumns: 'repeat(auto-fill,minmax(4cm,4.1cm))'}} />
+            :null}
         </div>
     )
 }

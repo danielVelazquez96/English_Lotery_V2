@@ -1,0 +1,51 @@
+/* Form */
+.createACard-form{
+    display: flex;
+    flex-direction: column;
+    background-color: #A50F0F;
+    width: 50%;
+    padding: 20px;
+    margin-left: 50px;
+    border: solid #000 2px;
+    box-shadow: 5px 5px 10px #000 ;
+}
+
+/* inputs */
+.createACard-form input{
+    width: 200px;
+}
+
+/* input file */
+.createACard-form input[type="file"] {
+    color: #fff; 
+    width: 100%;
+
+ }
+ 
+/* labels */
+.createACard-form label{
+    width: 100px;
+    margin-bottom: 5px;
+   
+
+}
+
+/* Button --------------------------------- */
+.createACard-form .submit{
+    width: 35%;
+    height: 35px;
+    color: #fff;
+    background-color: #4A0505;
+    align-self: center;
+    border: #000 solid 1px;
+    font-size: 1.3rem;
+    font-weight: 350;
+    margin: 10px;
+    margin-top: 28px;
+}
+
+.createACard-form .submit:hover{
+    background-color: #770808;
+}
+
+
