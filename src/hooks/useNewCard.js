@@ -22,7 +22,6 @@ const useNewCard=(initial)=>{
 
     const handleChangeFile=({target})=>{
         const file=target.files[0];
-        console.log(target. files)
         const reader=new FileReader(); //objet to convert file to url image
         reader.readAsDataURL(file);
         reader.onloadend=()=>{
