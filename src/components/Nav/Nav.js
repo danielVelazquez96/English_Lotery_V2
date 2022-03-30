@@ -1,6 +1,6 @@
 
 import styled from 'styled-components'
-
+import {NavLink} from 'react-router-dom'
 
 // Styled components
 const NavContainer=styled.nav`
@@ -25,33 +25,48 @@ const PagesContainer=styled.div`
     justify-content: space-around;
     width: 100%;
 `
-const PageButton=styled.button`    
-    background-color: transparent;
-    color: #fff;
-    font-size: 18px;
-    padding: 0 0 5px 0;
-    border: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
+const PageLink=styled(NavLink)`   
+    font-family: 'Lato';
+    display: block;
     width: 100%;
-    border-radius: 10px;
-
+    height: 100%;
+    text-align: center;
+    text-decoration:none;
+    color:#eee;
+    font-weight: 400;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    margin: 1px 5px;
+     
     &:hover{
-        background-color: rgb(256,256,256,0.15);
-        color: rgb(0,0,0,.6);
+        background-color: rgb(256,256,256,0.3); 
+        color: #fff;
+    }
+    &[aria-current="page"]{
+        background-color: rgb(256,256,256,0.4); 
+        color: #555;
     }
 `
 
+const Link= ({page}) => { 
+    return(
+        <PageLink to={`/${page}`}>{page}</PageLink>  
+    )
+ }
+
+
+
 // Coponent
-const Nav=({changePage})=>{
+const Nav=()=>{
     return(
         <NavContainer primary>
             <NavTitle>English Lotery</NavTitle>
             
             <PagesContainer>
-                <PageButton onClick={()=>changePage('SearchLotery')}>Search Lotery</PageButton>
-                <PageButton onClick={()=>changePage('Template')}>Template</PageButton>
-                <PageButton onClick={()=>changePage('CreateALotery')}>Create A Lotery</PageButton>
+                <Link  page={'Search'}/>
+                <Link  page={'Template'}/>
+                <Link  page={'Create-A-Lotery'}/>
             </PagesContainer>
             
         </NavContainer>

@@ -1,14 +1,12 @@
-import { useState,useEffect } from 'react';
-import './App.css'; //stylesheet
+import { useState,useEffect,ReactFragment } from 'react';
 import Nav from './components/Nav/Nav.js'
 import Template from './pages/Template';
 import CreateALotery from './pages/CreateALotery.js'
 import getLotery from './api/getLotery.js'
-import usePage from './hooks/usePage';
+import { Route,Routes} from 'react-router-dom';
 
 
 const App=()=>{
-    const[page,changePage]=usePage('CreateALotery')
     const[data,setData]=useState([])
 
     useEffect(async()=>{
@@ -16,16 +14,14 @@ const App=()=>{
     },[])
 
     return(
-      <div>
-        <Nav page={page} changePage={changePage}/>
-        {
-          page==='Template'
-            ?<Template data={data} />
-            :page==='CreateALotery'
-              ?<CreateALotery/>
-              :null
-        }
-      </div>
+      <>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Template data={data} />} /> 
+          <Route path='/Template' element={<Template data={data} />} /> 
+          <Route default path='/Create-A-Lotery' element={<CreateALotery/>} /> 
+        </Routes>
+      </>
     )
 }
 
