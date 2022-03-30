@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'
 
 // Styles
@@ -16,8 +15,9 @@ const CardImage=styled.img`
     object-fit: fill;
 `
 const CardTitle=styled.h3`
- max-width: 2.9cm;
-    max-height: .9cm;
+    display: inline-block    ;
+    width: 90%;
+    height:auto;
     position: absolute;
     font-size: 20px;
     font-weight: 500;
@@ -27,6 +27,7 @@ const CardTitle=styled.h3`
     text-align: center;
     line-height: .4cm;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 `
 const CardNumber=styled.span`
     position: absolute;

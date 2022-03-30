@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import styled from 'styled-components'
 import Card from './Card'
-import Form from './Form'
+import NewLoteryForm from './NewLoteryForm'
 import useNewCard from '../../hooks/useNewCard'
 import uploadImage from '../../api/uploadImage'
+import {Formik} from 'formik'
 
 // Styles
 const CreateACardContainer=styled.div`
@@ -42,6 +43,8 @@ const PreView=styled.div`
     height: auto;
 `
 
+
+
 // Components
 const CreateACard=({addCard})=>{
     const inputFile=useRef(null)
@@ -53,7 +56,6 @@ const CreateACard=({addCard})=>{
         })
     
     const handleSubmit=async(e)=>{
-        e.preventDefault();
         // filters
         if(newCard.name=='') return null;
         if(newCard.urlImg=='https://res.cloudinary.com/dxi9i9ucm/image/upload/v1644087194/englishLotery/fzg796ir2xkr5pp2bov4.jpg') return null;
@@ -89,13 +91,21 @@ const CreateACard=({addCard})=>{
                 </PreView>
                 {/* ---------------------------- */}
                 {/* Form to cards design*/}
-                <Form 
-                    newCard={newCard} 
-                    handleChange={handleChange} 
-                    handleChangeFile={handleChangeFile} 
-                    inputFile={inputFile}
+                <Formik
+                    initialValues={{
+                        number:'1',
+                        name:'',
+                        urlImg:'https://res.cloudinary.com/dxi9i9ucm/image/upload/v1644087194/englishLotery/fzg796ir2xkr5pp2bov4.jpg',
+                    }}
                     onSubmit={handleSubmit}
-                />
+                >
+                    <NewLoteryForm 
+                        newCard={newCard} 
+                        handleChange={handleChange} 
+                        handleChangeFile={handleChangeFile} 
+                        inputFile={inputFile}
+                    />
+                </Formik>
                 {/* ------------------ */}
             </DesignContainer>
         </CreateACardContainer>
